@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.wooui</groupId>
+    <artifactId>springboot-training</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <springboot.version>1.5.7.RELEASE</springboot.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<mysql.version>5.1.38</mysql.version>
+        <mybatis.spring.version>1.2.0</mybatis.spring.version>
+		<druid.starter.version>1.1.4</druid.starter.version>
+		<mapper.version>3.4.0</mapper.version>
+		<pagehelper.version>4.2.1</pagehelper.version>
+		<shiro.version>1.2.4</shiro.version>
+		<usertype.version>5.0.0.GA</usertype.version>
+		<guava.version>21.0</guava.version>
+		<fastjson.version>1.2.22</fastjson.version>
+		<commons-collections>3.2.2</commons-collections>
+		<commons-beanutils.version>1.8.3</commons-beanutils.version>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<commons-codec.version>1.10</commons-codec.version>
+   	 	<joda-time.version>2.9.4</joda-time.version>
+		<zxing.version>3.2.0</zxing.version>
+		<pinyin4j.version>2.5.0</pinyin4j.version>
+		<cglib.version>2.2.2</cglib.version>
+		<springbootadminclient.version>1.5.0</springbootadminclient.version>
+    </properties>
+
+    <modules>
+    	<module>waka-base-util</module>
+    	<module>springboot-restful</module>
+    	<module>springboot-mybatis</module>
+    	<module>springboot-mybatisplus</module>
+    	<module>springboot-mysql</module>
+    </modules>
+
+    <dependencies>
+		<!--mybatis-->
+	      <dependency>
+	          <groupId>org.mybatis.spring.boot</groupId>
+	          <artifactId>mybatis-spring-boot-starter</artifactId>
+	          <version>${mybatis.spring.version}</version>
+	          <exclusions>
+					<exclusion>
+						<groupId>org.apache.tomcat</groupId>
+						<artifactId>tomcat-jdbc</artifactId>
+					</exclusion>
+				</exclusions>
+	      </dependency>
+	      <!--mapper-->
+	      <!-- <dependency>
+	          <groupId>tk.mybatis</groupId>
+	          <artifactId>mapper-spring-boot-starter</artifactId>
+	          <version>1.1.0</version>
+	      </dependency>
+	      pagehelper
+	      <dependency>
+	          <groupId>com.github.pagehelper</groupId>
+	          <artifactId>pagehelper-spring-boot-starter</artifactId>
+	          <version>1.1.0</version>
+	      </dependency> -->
+	      <!--通用Mapper-->
+	     <dependency>
+	          <groupId>tk.mybatis</groupId>
+	          <artifactId>mapper</artifactId>
+	          <version>${mapper.version}</version>
+	      </dependency>
+	       <!--分页插件-->
+	      <dependency>
+	          <groupId>com.github.pagehelper</groupId>
+	          <artifactId>pagehelper</artifactId>
+	          <version>${pagehelper.version}</version>
+	      </dependency>
+	
+		
+		<!-- mysql驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		
+	     <!--阿里 Druid Spring Boot Starter依赖 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${druid.starter.version}</version>
+		</dependency>
+	     
+	     <dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${springbootadminclient.version}</version>
+		</dependency>
+		
+	     <dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.jadira.usertype/usertype.core -->
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
+			<version>${usertype.version}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.spi</artifactId>
+			<version>${usertype.version}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>${guava.version}</version>
+		</dependency>
+		<!-- json处理 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<!-- <dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-core</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-databind</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.datatype</groupId>
+	        <artifactId>jackson-datatype-joda</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.module</groupId>
+	        <artifactId>jackson-module-parameter-names</artifactId>
+	    </dependency> -->
+	    
+	    <!-- ================================================= -->
+		<!-- 加密框架依赖 -->
+		<!-- ================================================= -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons-beanutils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils-core</artifactId>
+			<version>${commons-beanutils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons-collections}</version>
+		</dependency>
+	    <dependency>
+	      <groupId>com.google.zxing</groupId>
+	      <artifactId>core</artifactId>
+	      <version>${zxing.version}</version>
+	      <scope>compile</scope>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.belerweb</groupId>
+	      <artifactId>pinyin4j</artifactId>
+	      <version>${pinyin4j.version}</version>
+	      <scope>compile</scope>
+	    </dependency>
+	    <dependency>
+	      <groupId>cglib</groupId>
+	      <artifactId>cglib-nodep</artifactId>
+	      <version>${cglib.version}</version>
+	      <scope>compile</scope>
+	    </dependency>
+	    
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>aliyun-repos</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun-plugin</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
